@@ -10,4 +10,4 @@ touch ~/Google-Drive/.ssh-config
 ln -s ~/Google-Drive/.ssh-config ~/.ssh/config
 
 #mkdir ~/.ansible
-#ansible-playbook playbook.yml
+ansible-playbook playbook.yml

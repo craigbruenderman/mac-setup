@@ -18,6 +18,6 @@ dockitems_to_persist:
   - name: Firefox
     path: "/Applications/Firefox.app"
     pos: 2
-  - name: Iterm
-    path: /Applications/iTerm.app
+  - name: iTerm
+    path: "/Applications/iTerm.app"
     pos: 3
