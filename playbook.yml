@@ -1,3 +1,4 @@
+# Mac setup playbook
 ---
 - hosts: localhost
   connection: local
