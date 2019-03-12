@@ -10,6 +10,9 @@ dockitems_to_remove:
   - iBooks
   - App Store
   - Calendar
+  - Pages
+  - Numbers
+  - Keynote
  
 dockitems_to_persist:
   - name: Google Chrome
@@ -21,3 +24,6 @@ dockitems_to_persist:
   - name: iTerm
     path: "/Applications/iTerm.app"
     pos: 3
+  - name: Textmate
+    path: "/Applications/Textmate.app"
+    pos: 4
