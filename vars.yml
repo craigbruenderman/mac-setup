@@ -1,0 +1,23 @@
+dockitems_to_remove:
+  - Launchpad
+  - Mail
+  - Notes
+  - Reminders
+  - Maps
+  - Photos
+  - FaceTime
+  - iTunes
+  - iBooks
+  - App Store
+  - Calendar
+ 
+dockitems_to_persist:
+  - name: Google Chrome
+    path: "/Applications/Google Chrome.app"
+    pos: 1
+  - name: Firefox
+    path: "/Applications/Firefox.app"
+    pos: 2
+  - name: Iterm
+    path: /Applications/iTerm.app
+    pos: 3
