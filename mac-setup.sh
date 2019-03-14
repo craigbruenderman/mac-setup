@@ -30,8 +30,6 @@ ansible-playbook playbooks/main.yml
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "Doing the rest..."
-# Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
@@ -41,9 +39,6 @@ chflags nohidden ~/Library
 
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
-
-# Don’t show recent applications in Dock
-defaults write com.apple.dock show-recents -bool false
 
 # Enable SSH
 sudo systemsetup -setremotelogin on
@@ -136,14 +131,48 @@ defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
+
+###############################################################################
+# Dock Stuff                                                                  #
+###############################################################################
+
+dockutil --remove 'Siri' --no-restart
+dockutil --remove 'Maps' --no-restart
+dockutil --remove 'Notes' --no-restart
+dockutil --remove 'Reminders' --no-restart
+dockutil --remove 'Mail' --no-restart
+dockutil --remove 'FaceTime' --no-restart
+dockutil --remove 'Launchpad' --no-restart
+dockutil --remove 'Pages' --no-restart
+dockutil --remove 'Keynote' --no-restart
+dockutil --remove 'Numbers' --no-restart
+dockutil --remove 'Calendar' --no-restart
+
+dockutil --move "Safari" --position 1
+dockutil --add "/Applications/Google Chrome.app" --after "Safari" --no-restart
+dockutil --add "/Applications/Firefox.app" --after "Google Chrome" --no-restart
+dockutil --add "/Applications/TextMate.app" --after "Firefox" --no-restart
+dockutil --add "/Applications/OmniGraffle.app" --after "TextMate" --no-restart
+dockutil --add "/Applications/VMware Fusion.app" --after "OmniGraffle" --no-restart
+dockutil --move "System Preferences" --position 10
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
 #Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 42
+
 #Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
+
 #Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
+
 killall Dock
 
+# If Dock icons break
+#rm ~/Library/Preferences/apple.dock.extra.plist
+#rm ~/Library/Preferences/com.apple.dock.plist
 
 ###############################################################################
 # Activity Monitor                                                            #

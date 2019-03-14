@@ -8,27 +8,14 @@
 
   tasks:
 
-    - name: Dock configuration
-      include: dock.yml
+#    - name: Dock configuration
+#      include: dock.yml
 
     - name: Get current Terminal profile.
       shell: defaults read com.apple.Terminal 'Default Window Settings'
       register: terminal_theme
       changed_when: false
 
-#    - name: Ensure custom Terminal profile is added.
-#      shell: open files/Solarized-Dark.terminal
-#      changed_when: false
-#      when: "'Solarized-Dark' not in terminal_theme.stdout"
-#
-#    - name: Ensure custom Terminal profile is set as default.
-#      shell: "{{ item }}"
-#      with_items:
-#        - defaults write com.apple.Terminal 'Default Window Settings' -string 'Solarized-Dark'
-#        - defaults write com.apple.Terminal 'Startup Window Settings' -string 'Solarized-Dark'
-#      changed_when: false
-#      when: "'Solarized Dark ansi' not in terminal_theme.stdout"
-#
     - name: Show clock during screensaver
       osx_defaults:
         domain: com.apple.screensaver
