@@ -6,6 +6,11 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Apple updates
+# Run this manually first, and last
+#softwareupdate -i -a -R
+sudo softwareupdate --schedule on
+
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install git
 #git clone https://github.com/craigbruenderman/mac-setup
@@ -15,7 +20,14 @@ mv ~/mac-setup/.gitconfig ~/
 ln -s ~/GoogleDrive/.ssh-config ~/.ssh/config
 
 #mkdir ~/.ansible
+# Run Ansible stuff
 ansible-playbook playbooks/main.yml
+
+# Change shell to zsh
+chsh -s $(which zsh)
+
+# And install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
@@ -31,6 +43,9 @@ sudo chflags nohidden /Volumes
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
+
+# Enable SSH
+sudo systemsetup -setremotelogin on
 
 # Enable Safari’s debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
