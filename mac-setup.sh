@@ -138,8 +138,23 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
 # If Dock icons break
 # rm ~/Library/Preferences/apple.dock.extra.plist
-# rm ~/Library/Preferences/com.apple.dock.plist
-# killall Dock
+#rm ~/Library/Preferences/com.apple.dock.plist
+#killall Dock
+#sleep 2
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
+#Set the icon size of Dock items to 36 pixels
+defaults write com.apple.dock tilesize -int 42
+
+#Minimize windows into their application’s icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+#Show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+
+killall Dock
 
 dockutil --remove 'Siri' --no-restart
 dockutil --remove 'Maps' --no-restart
@@ -159,24 +174,13 @@ dockutil --add "/Applications/Google Chrome.app" --after "Safari" --no-restart
 dockutil --add "/Applications/Firefox.app" --after "Google Chrome" --no-restart
 dockutil --add "/Applications/TextMate.app" --after "Firefox" --no-restart
 dockutil --add "/Applications/iTerm.app" --after "Firefox" --no-restart
+dockutil --add "/Applications/Microsoft Outlook.app" --after "iTerm" --no-restart
+dockutil --add "/Applications/Webex Teams.app" --after "Microsoft Outlook" --no-restart
 dockutil --add "/Applications/OmniGraffle.app" --after "iTerm" --no-restart
 dockutil --add "/Applications/VMware Fusion.app" --after "OmniGraffle" --no-restart
 dockutil --add "/Applications/Transmit.app" --after "VMware Fusion" --no-restart
 dockutil --move "System Preferences" --position 10
 
-# Don’t show recent applications in Dock
-defaults write com.apple.dock show-recents -bool false
-
-#Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 42
-
-#Minimize windows into their application’s icon
-defaults write com.apple.dock minimize-to-application -bool true
-
-#Show indicator lights for open applications in the Dock
-defaults write com.apple.dock show-process-indicators -bool true
-
-killall Dock
 
 ###############################################################################
 # Activity Monitor                                                            #
