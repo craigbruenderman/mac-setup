@@ -136,6 +136,11 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # Dock Stuff                                                                  #
 ###############################################################################
 
+# If Dock icons break
+# rm ~/Library/Preferences/apple.dock.extra.plist
+# rm ~/Library/Preferences/com.apple.dock.plist
+# killall Dock
+
 dockutil --remove 'Siri' --no-restart
 dockutil --remove 'Maps' --no-restart
 dockutil --remove 'Notes' --no-restart
@@ -146,14 +151,17 @@ dockutil --remove 'Launchpad' --no-restart
 dockutil --remove 'Pages' --no-restart
 dockutil --remove 'Keynote' --no-restart
 dockutil --remove 'Numbers' --no-restart
+dockutil --remove 'App Store' --no-restart
 dockutil --remove 'Calendar' --no-restart
 
 dockutil --move "Safari" --position 1
 dockutil --add "/Applications/Google Chrome.app" --after "Safari" --no-restart
 dockutil --add "/Applications/Firefox.app" --after "Google Chrome" --no-restart
 dockutil --add "/Applications/TextMate.app" --after "Firefox" --no-restart
-dockutil --add "/Applications/OmniGraffle.app" --after "TextMate" --no-restart
+dockutil --add "/Applications/iTerm.app" --after "Firefox" --no-restart
+dockutil --add "/Applications/OmniGraffle.app" --after "iTerm" --no-restart
 dockutil --add "/Applications/VMware Fusion.app" --after "OmniGraffle" --no-restart
+dockutil --add "/Applications/Transmit.app" --after "VMware Fusion" --no-restart
 dockutil --move "System Preferences" --position 10
 
 # Don’t show recent applications in Dock
@@ -169,10 +177,6 @@ defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock show-process-indicators -bool true
 
 killall Dock
-
-# If Dock icons break
-#rm ~/Library/Preferences/apple.dock.extra.plist
-#rm ~/Library/Preferences/com.apple.dock.plist
 
 ###############################################################################
 # Activity Monitor                                                            #
