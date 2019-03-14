@@ -24,11 +24,12 @@ ln -s ~/GoogleDrive/.ssh-config ~/.ssh/config
 ansible-playbook playbooks/main.yml
 
 # Change shell to zsh
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
 
 # And install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+echo "Doing the rest..."
 # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
@@ -141,6 +142,7 @@ defaults write com.apple.dock tilesize -int 36
 defaults write com.apple.dock minimize-to-application -bool true
 #Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
+killall Dock
 
 
 ###############################################################################
