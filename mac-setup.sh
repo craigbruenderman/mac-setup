@@ -16,18 +16,33 @@ brew install git
 #git clone https://github.com/craigbruenderman/mac-setup
 brew bundle install --file=~/mac-setup/Brewfile
 
-mv ~/mac-setup/.gitconfig ~/
-ln -s ~/GoogleDrive/.ssh-config ~/.ssh/config
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+###############################################################################
+# PATH, zsh, etc setup
+###############################################################################
+#echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
+#echo export PIP_REQUIRE_VIRTUALENV=true >> ~/.zshrc
+pip install --upgrade pip virtualenv
+mv ~/mac-setup/.gitconfig ~/
+
+###############################################################################
+# Setup and sync Google Drive first, then run
+###############################################################################
+mkdir ~/GoogleDrive
+# ln -s ~/GoogleDrive/Config/.ssh-config ~/.ssh/config
+# ln -s ~/GoogleDrive/Config/.zshrc ~/.zshrc
+# ln -s ~/GoogleDrive/Config/.gitconfig ~/.gitconfig
+# ln -s ~/GoogleDrive/Config/.gitignore ~/.gitignore
+# ln -s ~/GoogleDrive/Config/.aws ~/.aws
+
+###############################################################################
+# Ansible
+###############################################################################
 #mkdir ~/.ansible
 # Run Ansible stuff
 ansible-playbook playbooks/main.yml
-
-# Change shell to zsh
-#chsh -s $(which zsh)
-
-# And install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "Doing the rest..."
 
