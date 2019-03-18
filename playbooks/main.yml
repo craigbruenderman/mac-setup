@@ -11,6 +11,9 @@
 #    - name: Dock configuration
 #      include: dock.yml
 
+    - name: Conf files
+      include: conf_files.yml
+
     - name: Get current Terminal profile.
       shell: defaults read com.apple.Terminal 'Default Window Settings'
       register: terminal_theme

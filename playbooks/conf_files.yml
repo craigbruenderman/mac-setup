@@ -1,0 +1,27 @@
+- name: Hosts file entry
+  become: yes
+  lineinfile:
+    path: /etc/hosts
+    line: '192.168.10.33 vcenter.ridge.local'
+    create: yes
+    
+- name: Hosts file entry
+  become: yes
+  lineinfile:
+    path: /etc/hosts
+    line: '172.30.65.4  heuc-tor-vcsa-01.cbnms.com'
+    create: yes
+    
+- name: Hosts file entry
+  become: yes
+  lineinfile:
+    path: /etc/hosts
+    line: '172.30.66.133	heuc-tor-esxi-02.cbnms.com'
+    create: yes
+
+- name: Hosts file entry
+  become: yes
+  lineinfile:
+    path: /etc/hosts
+    line: '192.168.10.30  esxi-01.ridge.local'
+    create: yes
