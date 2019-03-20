@@ -47,6 +47,9 @@ sudo chflags nohidden /Volumes
 # Enable SSH
 sudo systemsetup -setremotelogin on
 
+# Disable annoying quarantine
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
 # Enable Safari’s debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
