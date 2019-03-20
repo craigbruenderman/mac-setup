@@ -25,17 +25,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 #echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 #echo export PIP_REQUIRE_VIRTUALENV=true >> ~/.zshrc
 pip install --upgrade pip virtualenv
-mv ~/mac-setup/.gitconfig ~/
-
-###############################################################################
-# Setup and sync Google Drive first, then run
-###############################################################################
-mkdir ~/GoogleDrive
-# ln -s ~/GoogleDrive/Config/.ssh-config ~/.ssh/config
-# ln -s ~/GoogleDrive/Config/.zshrc ~/.zshrc
-# ln -s ~/GoogleDrive/Config/.gitconfig ~/.gitconfig
-# ln -s ~/GoogleDrive/Config/.gitignore ~/.gitignore
-# ln -s ~/GoogleDrive/Config/.aws ~/.aws
 
 ###############################################################################
 # Ansible
@@ -299,3 +288,18 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 
 # Randomize port on launch
 defaults write org.m0k.transmission RandomPort -bool true
+
+##
+# Make some directories
+##
+mkdir ~/Projects
+
+###############################################################################
+# Setup and sync Google Drive first, then run
+###############################################################################
+# mkdir ~/GoogleDrive
+# ln -s ~/GoogleDrive/Config/.ssh-config ~/.ssh/config
+# ln -s ~/GoogleDrive/Config/.zshrc ~/.zshrc
+# ln -s ~/GoogleDrive/Config/.gitconfig ~/.gitconfig
+# ln -s ~/GoogleDrive/Config/.gitignore ~/.gitignore
+# ln -s ~/GoogleDrive/Config/.aws ~/.aws
