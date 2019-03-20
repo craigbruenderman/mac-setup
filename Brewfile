@@ -65,6 +65,7 @@ cask "vmware-fusion"
 cask "vmware-horizon-client"
 cask "webex-teams"
 cask "wireshark"
+cask "transmit"
 mas "ELAN Viewer", id: 1083657906
 #mas "GarageBand", id: 682658836
 #mas "iMovie", id: 408981434
