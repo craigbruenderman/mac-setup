@@ -39,24 +39,16 @@ brew "youtube-dl"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-cask "adobe-acrobat-reader"
 cask "atom"
-cask "caffeine"
-cask "expressvpn"
 cask "firefox"
 cask "keyboardcleantool"
 cask "mactex"
 cask "macvim"
 cask "microsoft-office"
 cask "omnigraffle"
-cask "onedrive"
 cask "postman"
 cask "private-internet-access"
-cask "sketchup"
-cask "skype"
 cask "slack"
-cask "spotify"
-cask "sublime-text"
 cask "textmate"
 cask "transmission"
 cask "visual-studio-code"
@@ -67,7 +59,6 @@ cask "webex-teams"
 cask "wireshark"
 cask "transmit"
 mas "ELAN Viewer", id: 1083657906
-#mas "GarageBand", id: 682658836
 #mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Microsoft Remote Desktop", id: 1295203466
@@ -75,4 +66,3 @@ mas "Monity", id: 915542151
 #mas "Numbers", id: 409203825
 #mas "Pages", id: 409201541
 mas "WiFi Explorer", id: 494803304
-mas "Wunderlist", id: 410628904
