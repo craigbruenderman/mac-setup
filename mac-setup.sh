@@ -14,7 +14,7 @@ sudo softwareupdate --schedule on
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install git
 #git clone https://github.com/craigbruenderman/mac-setup
-brew bundle install --file=~/mac-setup/Brewfile
+brew bundle install --file=Brewfile
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -24,7 +24,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ###############################################################################
 #echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 #echo export PIP_REQUIRE_VIRTUALENV=true >> ~/.zshrc
-pip install --upgrade pip virtualenv
+pip3 install ansible
 
 ###############################################################################
 # Ansible
@@ -161,101 +161,101 @@ defaults write com.apple.dock minimize-to-application -bool true
 #Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
 
-killall Dock
-
-dockutil --remove 'Siri' --no-restart
-dockutil --remove 'Maps' --no-restart
-dockutil --remove 'Notes' --no-restart
-dockutil --remove 'Reminders' --no-restart
-dockutil --remove 'Mail' --no-restart
-dockutil --remove 'FaceTime' --no-restart
-dockutil --remove 'Launchpad' --no-restart
-dockutil --remove 'Pages' --no-restart
-dockutil --remove 'Keynote' --no-restart
-dockutil --remove 'Numbers' --no-restart
-dockutil --remove 'App Store' --no-restart
-dockutil --remove 'Calendar' --no-restart
-
-dockutil --move "Safari" --position 1
-dockutil --add "/Applications/Google Chrome.app" --after "Safari" --no-restart
-dockutil --add "/Applications/Firefox.app" --after "Google Chrome" --no-restart
-dockutil --add "/Applications/TextMate.app" --after "Firefox" --no-restart
-dockutil --add "/Applications/iTerm.app" --after "Firefox" --no-restart
-dockutil --add "/Applications/Microsoft Outlook.app" --after "iTerm" --no-restart
-dockutil --add "/Applications/Webex Teams.app" --after "Microsoft Outlook" --no-restart
-dockutil --add "/Applications/OmniGraffle.app" --after "iTerm" --no-restart
-dockutil --add "/Applications/VMware Fusion.app" --after "OmniGraffle" --no-restart
-dockutil --add "/Applications/Transmit.app" --after "VMware Fusion" --no-restart
-dockutil --move "System Preferences" --position 10
-
-
-###############################################################################
-# Activity Monitor                                                            #
-###############################################################################
-
-# Show the main window when launching Activity Monitor
-defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
-
-# Visualize CPU usage in the Activity Monitor Dock icon
-defaults write com.apple.ActivityMonitor IconType -int 5
-
-# Show all processes in Activity Monitor
-defaults write com.apple.ActivityMonitor ShowCategory -int 0
-
-# Sort Activity Monitor results by CPU usage
-defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
-defaults write com.apple.ActivityMonitor SortDirection -int 0
-
-###############################################################################
-# Mac App Store                                                               #
-###############################################################################
-
-# Enable the WebKit Developer Tools in the Mac App Store
-defaults write com.apple.appstore WebKitDeveloperExtras -bool true
-
-# Enable Debug Menu in the Mac App Store
-defaults write com.apple.appstore ShowDebugMenu -bool true
-
-# Enable the automatic update check
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
-
-# Check for software updates daily, not just once per week
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
-# Download newly available updates in background
-defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
-
-# Install System data files & security updates
-defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
-
-# Automatically download apps purchased on other Macs
-defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
-
-# Turn on app auto-update
-defaults write com.apple.commerce AutoUpdate -bool true
-
-# Allow the App Store to reboot machine on macOS updates
-defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
-
-###############################################################################
-# Google Chrome & Google Chrome Canary                                        #
-###############################################################################
-
-# Disable the all too sensitive backswipe on trackpads
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
-
-# Disable the all too sensitive backswipe on Magic Mouse
-defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
-defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
-
-# Use the system-native print preview dialog
-defaults write com.google.Chrome DisablePrintPreview -bool true
-defaults write com.google.Chrome.canary DisablePrintPreview -bool true
-
-# Expand the print dialog by default
-defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
-defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
+# killall Dock
+#
+# dockutil --remove 'Siri' --no-restart
+# dockutil --remove 'Maps' --no-restart
+# dockutil --remove 'Notes' --no-restart
+# dockutil --remove 'Reminders' --no-restart
+# dockutil --remove 'Mail' --no-restart
+# dockutil --remove 'FaceTime' --no-restart
+# dockutil --remove 'Launchpad' --no-restart
+# dockutil --remove 'Pages' --no-restart
+# dockutil --remove 'Keynote' --no-restart
+# dockutil --remove 'Numbers' --no-restart
+# dockutil --remove 'App Store' --no-restart
+# dockutil --remove 'Calendar' --no-restart
+#
+# dockutil --move "Safari" --position 1
+# dockutil --add "/Applications/Google Chrome.app" --after "Safari" --no-restart
+# dockutil --add "/Applications/Firefox.app" --after "Google Chrome" --no-restart
+# dockutil --add "/Applications/TextMate.app" --after "Firefox" --no-restart
+# dockutil --add "/Applications/iTerm.app" --after "Firefox" --no-restart
+# dockutil --add "/Applications/Microsoft Outlook.app" --after "iTerm" --no-restart
+# dockutil --add "/Applications/Webex Teams.app" --after "Microsoft Outlook" --no-restart
+# dockutil --add "/Applications/OmniGraffle.app" --after "iTerm" --no-restart
+# dockutil --add "/Applications/VMware Fusion.app" --after "OmniGraffle" --no-restart
+# dockutil --add "/Applications/Transmit.app" --after "VMware Fusion" --no-restart
+# dockutil --move "System Preferences" --position 10
+#
+#
+# ###############################################################################
+# # Activity Monitor                                                            #
+# ###############################################################################
+#
+# # Show the main window when launching Activity Monitor
+# defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+#
+# # Visualize CPU usage in the Activity Monitor Dock icon
+# defaults write com.apple.ActivityMonitor IconType -int 5
+#
+# # Show all processes in Activity Monitor
+# defaults write com.apple.ActivityMonitor ShowCategory -int 0
+#
+# # Sort Activity Monitor results by CPU usage
+# defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+# defaults write com.apple.ActivityMonitor SortDirection -int 0
+#
+# ###############################################################################
+# # Mac App Store                                                               #
+# ###############################################################################
+#
+# # Enable the WebKit Developer Tools in the Mac App Store
+# defaults write com.apple.appstore WebKitDeveloperExtras -bool true
+#
+# # Enable Debug Menu in the Mac App Store
+# defaults write com.apple.appstore ShowDebugMenu -bool true
+#
+# # Enable the automatic update check
+# defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+#
+# # Check for software updates daily, not just once per week
+# defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+#
+# # Download newly available updates in background
+# defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
+#
+# # Install System data files & security updates
+# defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
+#
+# # Automatically download apps purchased on other Macs
+# defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
+#
+# # Turn on app auto-update
+# defaults write com.apple.commerce AutoUpdate -bool true
+#
+# # Allow the App Store to reboot machine on macOS updates
+# defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
+#
+# ###############################################################################
+# # Google Chrome & Google Chrome Canary                                        #
+# ###############################################################################
+#
+# # Disable the all too sensitive backswipe on trackpads
+# defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+# defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+#
+# # Disable the all too sensitive backswipe on Magic Mouse
+# defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
+# defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
+#
+# # Use the system-native print preview dialog
+# defaults write com.google.Chrome DisablePrintPreview -bool true
+# defaults write com.google.Chrome.canary DisablePrintPreview -bool true
+#
+# # Expand the print dialog by default
+# defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
+# defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 
 ###############################################################################
 # Transmission.app                                                            #
