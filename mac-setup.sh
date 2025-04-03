@@ -4,7 +4,11 @@
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
 # Apple updates
 # Run this manually first, and last
@@ -24,7 +28,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ###############################################################################
 #echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 #echo export PIP_REQUIRE_VIRTUALENV=true >> ~/.zshrc
-pip3 install ansible
+pip install ansible
 
 ###############################################################################
 # Ansible
@@ -138,7 +142,6 @@ defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
-
 ###############################################################################
 # Dock Stuff                                                                  #
 ###############################################################################
@@ -161,33 +164,6 @@ defaults write com.apple.dock minimize-to-application -bool true
 #Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
 
-# killall Dock
-#
-# dockutil --remove 'Siri' --no-restart
-# dockutil --remove 'Maps' --no-restart
-# dockutil --remove 'Notes' --no-restart
-# dockutil --remove 'Reminders' --no-restart
-# dockutil --remove 'Mail' --no-restart
-# dockutil --remove 'FaceTime' --no-restart
-# dockutil --remove 'Launchpad' --no-restart
-# dockutil --remove 'Pages' --no-restart
-# dockutil --remove 'Keynote' --no-restart
-# dockutil --remove 'Numbers' --no-restart
-# dockutil --remove 'App Store' --no-restart
-# dockutil --remove 'Calendar' --no-restart
-#
-# dockutil --move "Safari" --position 1
-# dockutil --add "/Applications/Google Chrome.app" --after "Safari" --no-restart
-# dockutil --add "/Applications/Firefox.app" --after "Google Chrome" --no-restart
-# dockutil --add "/Applications/TextMate.app" --after "Firefox" --no-restart
-# dockutil --add "/Applications/iTerm.app" --after "Firefox" --no-restart
-# dockutil --add "/Applications/Microsoft Outlook.app" --after "iTerm" --no-restart
-# dockutil --add "/Applications/Webex Teams.app" --after "Microsoft Outlook" --no-restart
-# dockutil --add "/Applications/OmniGraffle.app" --after "iTerm" --no-restart
-# dockutil --add "/Applications/VMware Fusion.app" --after "OmniGraffle" --no-restart
-# dockutil --add "/Applications/Transmit.app" --after "VMware Fusion" --no-restart
-# dockutil --move "System Preferences" --position 10
-#
 #
 # ###############################################################################
 # # Activity Monitor                                                            #
@@ -296,6 +272,7 @@ defaults write org.m0k.transmission RandomPort -bool true
 # Make some directories
 ##
 mkdir ~/Projects
+mkdir ~/Code
 
 ###############################################################################
 # Setup and sync Google Drive first, then run
